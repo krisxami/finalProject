@@ -1,0 +1,50 @@
+/* Custom cream/nude palette */
+:root {
+    --cream-lightest: #f7f5f0;
+    --cream-lighter: #f0e8d4;
+    --cream-base: #e8dcc8;
+    --cream-darker: #d1c5ad;
+    --nude-lightest: #ede7e1;
+    --nude-lighter: #e3d9d1;
+    --nude-base: #d9cbb9;
+    --nude-darker: #c0b3a1;
+    --text-dark: #333;
+    --accent-color: #ff6b6b; /* A more vibrant, playful accent color */
+}
+body {
+    background-color: var(--cream-lightest);
+    color: var(--text-dark);
+}
+input[type="text"] {
+    background-color: var(--cream-lighter);
+    color: var(--text-dark);
+    border: 1px solid var(--cream-base);
+}
+input[type="text"]::placeholder {
+    color: #777;
+}
+input[type="text"]:focus {
+    outline: none;
+    ring-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+.building-card {
+    background: linear-gradient(to bottom, var(--nude-lighter), var(--cream-lightest)); /* Cream to white gradient */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother animation */
+}
+.building-card:hover {
+    transform: translateY(-5px); /* Slightly larger hover effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+.building-card h2 {
+    color: var(--text-dark);
+}
+.building-card p {
+    color: #555;
+}
+.fun-title {
+    font-family: 'Fredoka One', sans-serif; /* Playful font */
+    color: var(--nude-darker);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}

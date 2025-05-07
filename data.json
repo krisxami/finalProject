@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Department of Computer Science and Technology",
+        "image": "assets/images/buildingA.jpg",
+        "floors": {
+            "1st Floor": ["ICT-101", "ICT-102", "ICT-103"],
+            "2nd Floor": ["ICT-201", "ICT-202", "ICT-203"]
+        }
+    },
+    {
+        "name": "Library",
+        "image": "assets/images/buildingB.jpg",
+        "floors": {
+            "1st Floor": ["104", "105", "106"],
+            "2nd Floor": ["204", "205", "206"],
+            "3rd Floor": ["304", "305", "306"]
+        }
+    },
+    {
+        "name": "Building C",
+        "image": "assets/images/buildingC.jpg",
+        "floors": {
+            "1st Floor": ["107", "108", "109"],
+            "2nd Floor": ["207", "208", "209"],
+            "3rd Floor": ["307", "308", "309"]
+        }
+    }
+]

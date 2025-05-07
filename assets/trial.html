@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Navigator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center p-6">
+
+    <div id="app">
+        <!-- Search Bar -->
+<!-- Centered Search Bar -->
+<!-- Title & Centered Search Bar -->
+<div class="flex flex-col items-center w-full mb-6">
+    <h1 class="text-4xl font-bold mb-4">Campus</h1>
+    <input type="text" v-model="searchQuery" placeholder="Search room number..."
+        class="w-full max-w-md p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+</div>
+
+
+
+
+
+        <!-- Buildings Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+            <div v-for="building in filteredBuildings" 
+                 :key="building.name" 
+                 class="bg-gray-800 p-5 rounded-lg shadow-lg cursor-pointer"
+                 @click="handleBuildingClick(building)">
+                <img :src="building.image" :alt="building.name" class="w-full h-40 object-cover rounded-lg mb-3">
+                <h2 class="text-2xl font-bold">{{ building.name }}</h2>
+                <p class="text-gray-400">Rooms: {{ getAllRooms(building).join(', ') }}</p>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
+
+
+
+
+------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Navigator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        /* Custom cream/nude palette */
+        :root {
+            --cream-lightest: #f7f5f0;
+            --cream-lighter: #f0e8d4;
+            --cream-base: #e8dcc8;
+            --cream-darker: #d1c5ad;
+            --nude-lightest: #ede7e1;
+            --nude-lighter: #e3d9d1;
+            --nude-base: #d9cbb9;
+            --nude-darker: #c0b3a1;
+            --text-dark: #333;
+            --accent-color: #ff6b6b; /* A more vibrant, playful accent color */
+        }
+        body {
+            background-color: var(--cream-lightest);
+            color: var(--text-dark);
+        }
+        input[type="text"] {
+            background-color: var(--cream-lighter);
+            color: var(--text-dark);
+            border: 1px solid var(--cream-base);
+        }
+        input[type="text"]::placeholder {
+            color: #777;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            ring-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        .building-card {
+            background: linear-gradient(to bottom, var(--nude-lighter), var(--cream-lightest)); /* Cream to white gradient */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother animation */
+        }
+        .building-card:hover {
+            transform: translateY(-5px); /* Slightly larger hover effect */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+        }
+        .building-card h2 {
+            color: var(--text-dark);
+        }
+        .building-card p {
+            color: #555;
+        }
+        .fun-title {
+            font-family: 'Fredoka One', sans-serif; /* Playful font */
+            color: var(--nude-darker);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center p-6">
+
+    <div id="app" class="w-full max-w-5xl">
+
+        <div class="flex flex-col items-center w-full mb-8">
+            <h1 class="text-4xl font-bold mb-4 fun-title">Campus Navigator</h1>
+            <input type="text" v-model="searchQuery" placeholder="Search room number..."
+                   class="w-full max-w-md p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-color">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+            <div v-for="building in filteredBuildings"
+                 :key="building.name"
+                 class="building-card p-5 rounded-lg cursor-pointer"
+                 @click="handleBuildingClick(building)">
+                <img :src="building.image" :alt="building.name" class="w-full h-40 object-cover rounded-lg mb-3">
+                <h2 class="text-2xl font-bold">{{ building.name }}</h2>
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
